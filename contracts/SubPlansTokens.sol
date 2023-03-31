@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
-contract CoastaSubPlansTokens is 
+contract SubPlansTokens is 
     ERC721URIStorage
     {
     string private DeluxTokenURI;

@@ -9,6 +9,7 @@
     "@chakra-ui/react": "^2.5.4",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
     "@openzeppelin/contracts": "^4.8.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -52,7 +53,7 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.2",
-    "@nomiclabs/hardhat-ethers": "^2.2.2           ",
-    "@nomiclabs/hardhat-etherscan": "^3.1.7"
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "hardhat": "^2.13.0"
   }
 }

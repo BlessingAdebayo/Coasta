@@ -1,0 +1,134 @@
+{
+    "coastaabi": [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_SubPlansTokensAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "_CoastaTokenAddress",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_OccurrenceId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_OccurrenceRightVote",
+            "type": "uint256"
+          }
+        ],
+        "name": "CloseOccurrence",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "string",
+            "name": "_OccurrenceName",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "_OccurrenceDescription",
+            "type": "string"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_OccurrenceClass",
+            "type": "uint256"
+          }
+        ],
+        "name": "CreateOccurrence",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "GetAllOccurrences",
+        "outputs": [
+          {
+            "components": [
+              {
+                "internalType": "address",
+                "name": "OccurenceCreator",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "OccurrenceId",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "OccurrenceName",
+                "type": "string"
+              },
+              {
+                "internalType": "string",
+                "name": "OccurrenceDescription",
+                "type": "string"
+              },
+              {
+                "internalType": "uint256",
+                "name": "OccurrenceClass",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "YesVotes",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "NoVotes",
+                "type": "uint256"
+              },
+              {
+                "internalType": "bool",
+                "name": "IsClosed",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct Coasta.Occurrence[]",
+            "name": "",
+            "type": "tuple[]"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_OccurrenceId",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_YesOrNo",
+            "type": "uint256"
+          }
+        ],
+        "name": "VoteOnOccurrences",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ]
+}

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MTI
 pragma solidity ^0.8.9;
 
-import "./CoastaSubPlansTokens.sol";
+import "./SubPlansTokens.sol";            
 
 contract Coasta {
-    CoastaSubPlansTokens private subplanstokens;
+       SubPlansTokens private subplanstokens;
     address private ContractOwner;
     address private coastatokenaddress;
     uint256 CurrentOccurrenceId;
@@ -15,7 +15,7 @@ contract Coasta {
     mapping (uint256 => address []) private UsersVotedNo;   
 
     constructor (address _SubPlansTokensAddress , address _CoastaTokenAddress){
-        subplanstokens = CoastaSubPlansTokens(_SubPlansTokensAddress);
+        subplanstokens = SubPlansTokens(_SubPlansTokensAddress);
         coastatokenaddress = _CoastaTokenAddress;
         ContractOwner = msg.sender;
     }   

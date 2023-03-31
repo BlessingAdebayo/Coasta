@@ -22,16 +22,16 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
             
 
         }
-      }, [])
+      }, [iswalletconnected, toast])
 
     const createoccurrence = async ()=>{
         try{
             const occurrencename = document.getElementById('occurrencename').value;
-            const occurencedescription = document.getElementById('occurrencedescription').value;
-            const class = document.getElementById("chooseoccurrenceclass");
-            var classname = class.options[class.selectedIndex].value;
+            const occurrencedescription = document.getElementById('occurrencedescription').value;
+            const classs = document.getElementById("chooseoccurrenceclass");
+            var classsname = classs.options[classs.selectedIndex].value;
             
-            if (classname === "lifestyle"){
+            if (classsname === "lifestyle"){
                 const createlifestyletx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,1)).wait();
                 if ( createlifestyletx.hash ||createlifestyletx.transactionHash){
                     toast({
@@ -48,9 +48,9 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
             }
 
              
-            if (classname === "match"){
-                const creatematchtx = await (await coastacontract.CreateOccurrence(occurrencename,occurencedescription,2)).wait();
-                if ( createsporttx.hash ||createsporttx.transactionHash){
+            if (classsname === "match"){
+                const creatematchtx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,2)).wait();
+                if ( creatematchtx.hash ||creatematchtx.transactionHash){
                     toast({
                         title: 'Creating Occurrence success',
                         description: "You have created occurrence successfully ",
@@ -65,8 +65,8 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
             }
 
             
-            if (classname === "social"){
-                    const createsocialtx = await (await coastacontract.createoccurrence(eventname,eventdescription,3)).wait();
+            if (classsname === "social"){
+                    const createsocialtx = await (await coastacontract.createoccurrence(occurrencename,occurrencedescription,3)).wait();
                     if ( createsocialtx.hash ||createsocialtx.transactionHash){
                         toast({
                             title: 'Creating Occurrence success',
@@ -141,7 +141,7 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
                             fontSize={30}
                         
                             type='submit'
-                            onClick={createevents}
+                            onClick={createoccurrence}
                             
                             >Create Event
                         </Button>

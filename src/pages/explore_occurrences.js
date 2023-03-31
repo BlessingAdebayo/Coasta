@@ -14,7 +14,7 @@ import { useDisclosure } from '@chakra-ui/react'
 
 const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
   const iswalletconnected = Boolean(accounts[0]);
-  const [allmarketoccurences,setallmarketoccurrences] = useState([]);
+  const [allmarketoccurrences,setallmarketoccurrences] = useState([]);
   const [currentoccurrenceid,setcurrentoccurrenceid] = useState();
 
   const toast = useToast();
@@ -62,7 +62,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
     setallmarketoccurrences(alloccurrences);
   }
 
-  const voteonoccurrecesYes = async(occurrenceid)=>{
+  const voteonoccurrencesYes = async(occurrenceid)=>{
         try{
             const voteyestx = await (await coastacontract.VoteOnOcurrences(occurrenceid,1)).wait();
             if ( voteyestx.hash || voteyestx.transactionHash){
@@ -171,7 +171,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
         const yesornoending = document.getElementById("chooseyesornoending");
         var correctvote = yesornoending.options[yesornoending.selectedIndex].value;
         if (correctvote === "yes"){
-            const endOccurrenceyestx = await (await coastacontract.EndOccurrence(occurrenceid,1)).wait();
+            const endoccurrenceyestx = await (await coastacontract.EndOccurrence(occurrenceid,1)).wait();
             if ( endoccurrenceyestx.hash || endoccurrenceyestx.transactionHash){
                 toast({
                     title: 'End Occurrence success',
@@ -186,7 +186,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
         }
         if (correctvote === "no"){
             const endoccurrenceynotx = await (await coastacontract.EndOccurrence(occurrenceid,0)).wait();
-            if ( endoccurrenceynotx.hash || endocccurrenceynotx.transactionHash){
+            if ( endoccurrenceynotx.hash || endoccurrenceynotx.transactionHash){
                 toast({
                     title: 'End Occurrence success',
                     description: "You have ended the occurrence with No correct vote ",
@@ -244,7 +244,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
     
                             {  allmarketoccurrences.length > 0 ? (
                                 <SimpleGrid columns={4} spacingX='75px' spacingY='25px'>
-                                    { allmarketoccurences.map((occurrence,idx) => (
+                                    { allmarketoccurrences.map((occurrence,idx) => (
                                         <Col >
                                                 <br></br>
                                                 p
@@ -384,7 +384,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
                                                                     height="75px"
                                                                     fontSize={30}
                                                                     onClick={ ()=>{
-                                                                        voteoneventsNo(event.occurrenceid)
+                                                                        voteonoccurrencesNo(event.occurrenceid)
                                                                         
 
                                                                     }
