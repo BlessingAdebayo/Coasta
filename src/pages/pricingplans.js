@@ -4,11 +4,11 @@ import { useToast } from '@chakra-ui/react'
 
 import { Link } from "react-router-dom";
 
-const PRICINGPLANS = ({coastatokencontract,subplantokens}) => {
+const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
   const [essentialminting , setessentialminiting] = useState("Mint");
   const [moderateminting , setmoderateminting] = useState("Mint");
   const [deluxminting , setdeluxminting] = useState("Mint");
-  const [essentialfees,setssentialfees] = useState();
+  const [essentialfees,setessentialfees] = useState();
   const [moderatefees,setmoderatefees] = useState();
   const [deluxfees,setdeluxfees] = useState();
   const [issubscribedessential,setissubscribedessential] = useState();

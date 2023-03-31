@@ -93,10 +93,10 @@ function App() {
         <Routes>
           <Route path= "/" element={ <HOME accounts={accounts} coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract}/>}/>
           <Route path= "/home" element={ <HOME />}/>
-          <Route path= "/exploreevents" element={ <EXPLOEROCCURRENCES accounts={accounts} coastacontract ={coastacontract}/>}/>
-          <Route path= "/createevents" element={ <CREATEOCCURRENCES accounts={accounts} coastacontract = {coastacontract}/>}/>
-          <Route path= "/workingmechanism" element={ <FUNCTIONALITY />}/>
-          <Route path= "/pricing" element={ <PRICINGPLANS coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract} />}/>
+          <Route path= "/exploreoccurrences" element={ <EXPLOEROCCURRENCES accounts={accounts} coastacontract ={coastacontract}/>}/>
+          <Route path= "/createoccurrences" element={ <CREATEOCCURRENCES accounts={accounts} coastacontract = {coastacontract}/>}/>
+          <Route path= "/functionality" element={ <FUNCTIONALITY />}/>
+          <Route path= "/pricingplans" element={ <PRICINGPLANS coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract} />}/>
           
           
         </Routes>
