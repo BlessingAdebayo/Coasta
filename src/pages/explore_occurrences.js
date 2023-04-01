@@ -12,7 +12,7 @@ import { useToast } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 
 
-const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
+const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
   const iswalletconnected = Boolean(accounts[0]);
   const [allmarketoccurrences,setallmarketoccurrences] = useState([]);
   const [currentoccurrenceid,setcurrentoccurrenceid] = useState();
@@ -47,24 +47,24 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
         }
 
         if (Number(occurrenceclass) == 1){
-             occurrenceclassmarket = "Lifestyle";
+             occurrenceclassmarket = "Financial";
         }
         if (Number(occurrenceclass) == 2){
-             occurrenceclassmarket = "Matches";
+             occurrenceclassmarket = "Sport";
         }
         if (Number(occurrenceclass) == 3){
              occurrenceclassmarket = "Social";
         }
 
      
-        alloccurrences.push({occurrencecreator : occurrencecreator ,occurrenceid:Number(occurrenceid) , occurrencename:occurrencename , occurrencedescription:occurrencedescription , occurrenceclass: occurrenceclassmarket , occurrenceyesvotes: occurrenceyespercentage , occurrencenovotes: occurrencenopercentage , occurrenceisended: occurrenceisended});
+        alloccurrences.push({occurrencecreator : occurrencecreator ,occurrenceid:Number(occurrenceid) , occurrencename:occurrencename , occurrencedescription:occurrencedescription , occurrenceclass: occurrenceclassmarket , occurrenceyesvotes: occurrenceyespercentage , occurrencenovotes:occurrencenopercentage , occurrenceisended: occurrenceisended});
     }
     setallmarketoccurrences(alloccurrences);
   }
 
   const voteonoccurrencesYes = async(occurrenceid)=>{
         try{
-            const voteyestx = await (await coastacontract.VoteOnOcurrences(occurrenceid,1)).wait();
+            const voteyestx = await (await coastacontract.VoteOnOccurrences(occurrenceid,1)).wait();
             if ( voteyestx.hash || voteyestx.transactionHash){
                 toast({
                     title: 'Voting on Occurrence Success',
@@ -77,10 +77,10 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
             }
         }
         catch(error){
-            if (error.reason === "execution reverted: You need to subscribe on coasta to vote on occurrences"){
+            if (error.reason === "execution reverted: You need to subscribe on predicta to vote on occurrences"){
                 toast({
                     title: 'Voting on Occurrence failed',
-                    description: "You need to subscribe on coasta to vote on occurrence",
+                    description: "You need to subscribe on predicta to vote on occurrences",
                     status: 'error',
                     duration: 2600,
                     isClosable: true,
@@ -126,10 +126,10 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
         }
     }
     catch(error){
-        if (error.reason === "execution reverted: You need to subscribe on coasta to vote on occurrences"){
+        if (error.reason === "execution reverted: You need to subscribe on predicta to vote on occurrences"){
             toast({
                 title: 'Voting on Occurrence failed',
-                description: "You need to subscribe on croasta to vote on occurrences",
+                description: "You need to subscribe on predicta to vote on occurrences",
                 status: 'error',
                 duration: 2600,
                 isClosable: true,
@@ -206,7 +206,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
         
         if (error.reason === "execution reverted: You could not end that occurrence, you are not the occurrence's creator"){
             toast({
-                title: 'Ending Occurrence failed',
+                title: 'Ending occurrence failed',
                 description: "You are not the occurrence creator",
                 status: 'error',
                 duration: 2600,
@@ -261,11 +261,11 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
                                                                 <Card.Title>
                                                                     <HStack >
                                                                         <Box width={500}>
-                                                                            <Text fontSize={20} ml="15px" fontWeight="bold" color="blue.200"> {event.occurrence} 
+                                                                            <Text fontSize={20} ml="15px" fontWeight="bold" color="blue.200"> {occurrence.occurrencename} 
                                                                             </Text>
                                                                         </Box>
                                                                         {
-                                                                            event.occurrenceisended ? (
+                                                                            occurrence.occurrenceisended ? (
                                                                         
                                                                         <Box>
                                                                             <Badge  fontSize={16} variant='outline' colorScheme='red'>
@@ -300,7 +300,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
                                                                                 colorScheme='grey' 
                                                                                 variant='solid'
                                                                                 onClick={ ()=>{               
-                                                                                    setcurrentoccurrenceid(event.occurrenceid);
+                                                                                    setcurrentoccurrenceid(occurrence.occurrenceid);
                                                                                     onOpen();
                                                                                 }} >
                                                                                     End Occurrence
@@ -318,29 +318,29 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
                                                             <Card.Text>
                                                                 <Box height="70px" width="350px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        {event.occuurenceid}
+                                                                        {occurrence.occurrencedescription}
                                                                     </Text>
                                                                 </Box>
                                                                                                                         
 
                                                                 <Box height="40px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        Category: {event.occurrenceclass}
+                                                                        Class: {occurrence.occurrenceclass}
                                                                     </Text>
                                                                 </Box>
                                                                 <Box height="40px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        Yes Votes: {event.occurrenceyesvotes} %
+                                                                        Yes Votes: {occurrence.occurrenceyesvotes} %
                                                                     </Text>
                                                                 </Box>
                                                                 <Box height="45px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        No Votes: {event.occurrencenovotes} %
+                                                                        No Votes: {occurrence.occurrencenovotes} %
                                                                     </Text>
                                                                 </Box>
                                                                 <Box height="45px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        Creator: {event.occurrenceid.slice(0, 5) + '...' + event.occurrencecreator.slice(38, 42)}
+                                                                        Creator: {occurrence.occurrencecreator.slice(0, 5) + '...' + occurrence.occurrencecreator.slice(38, 42)}
                                                                     </Text>
                                                                 </Box>
                                                           
@@ -365,7 +365,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
                                                                     height="75px"
                                                                     fontSize={30}
                                                                     onClick={ ()=>{
-                                                                        voteonoccurrencesYes(event.occurrenceid)
+                                                                        voteonoccurrencesYes(occurrence.occurrenceid)
                                                                         
 
                                                                     }
@@ -384,7 +384,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
                                                                     height="75px"
                                                                     fontSize={30}
                                                                     onClick={ ()=>{
-                                                                        voteonoccurrencesNo(event.occurrenceid)
+                                                                        voteonoccurrencesNo(occurrence.occurrenceid)
                                                                         
 
                                                                     }
@@ -521,7 +521,7 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
                     ) : (
                         
                         <Flex  justify="center"  fontSize="50px" fontFamily=" Papyrus" fontWeight="bold" bgClip='text' bgGradient='linear(to-r,blue.400, cyan.100)' padding={100} >
-                            Connect Wallet to view  Events
+                            Connect Wallet to view  Occurrences
                         </Flex>
     
      
@@ -543,4 +543,4 @@ const EXPLOEROCCURRENCES = ({accounts,coastacontract}) => {
     );
 };
 
-export default EXPLOEROCCURRENCES;
+export default EXPLOREOCCURRENCES;
