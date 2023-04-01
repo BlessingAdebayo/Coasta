@@ -30,7 +30,7 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
             const occurrencedescription = document.getElementById('occurrencedescription').value;
             const classs = document.getElementById("chooseoccurrenceclasss");
             var classsname = classs.options[classs.selectedIndex].value;
-            // Financial classs
+            // Lifestyle classs
             if (classsname === "lifestyle"){
                 const createlifestyletx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,1)).wait();
                 if ( createlifestyletx.hash ||createlifestyletx.transactionHash){
@@ -47,7 +47,7 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
 
             }
 
-            // Sport classs
+            // Matches classs
             if (classsname === "matches"){
                 const creatematchestx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,2)).wait();
                 if ( creatematchestx.hash ||creatematchestx.transactionHash){
@@ -117,12 +117,12 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
                     <Input id = "occurrencedescription" type='text' color="blue.200" maxLength="65"  borderWidth={2} borderColor="blue.800" placeholder="Occurrence description" height="90px" variant='outline' fontSize={22}/>
                     <br></br><br></br>
                     
-                    <FormLabel  htmlfor= "occurrenceclasss" color="blue.400"  fontSize="24px" fontWeight="bold">Category</FormLabel>
+                    <FormLabel  htmlfor= "occurrenceclasss" color="blue.400"  fontSize="24px" fontWeight="bold">Class</FormLabel>
                     <Select id="chooseoccurrenceclasss" fontSize={20} height="60px" width="485px" borderWidth={2} borderColor="blue.800" color="blue.500"    >
                                     
-                                    <option value="" disabled selected hidden>Choose Occurrence Category</option>
-                                    <option  value='lifestyle'  > Financial</option>
-                                    <option value='matches'>Sport</option>
+                                    <option value="" disabled selected hidden>Choose Occurrence Class</option>
+                                    <option  value='lifestyle'  > Lifestyle</option>
+                                    <option value='matches'>Matches</option>
                                     <option value='social'>Social</option>
                                   
                     </Select>

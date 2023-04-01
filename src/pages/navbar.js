@@ -10,7 +10,7 @@ const Navbar = ({accounts,connectwallet}) => {
         <Flex justify= "space-between"  padding="4px" bgColor="rgb(12, 20, 69)" borderWidth={2} borderColor="blue.900" >
                 <HStack spacing="600" justify="space-between" position= "sticky" >
                     <Flex as={Link} to= "/" fontWeight='extrabold' fontSize="38px" bgClip='text'  bgGradient='linear(to-r, cyan.500, pink.600)' ml={2} >
-                        Predicta
+                        Coasta
                     </Flex>
                     
                     <HStack spacing="50" justify="space-between"  position= "absolute" >
@@ -23,7 +23,7 @@ const Navbar = ({accounts,connectwallet}) => {
                                 fontSize="20px" 
                                 fontWeight="bold" 
                             >
-                                Events
+                                Occurrences
                             </MenuButton>
                             <MenuList bgColor="rgb(12, 20, 69)" >
                                 <MenuItem as={Link}
@@ -35,7 +35,7 @@ const Navbar = ({accounts,connectwallet}) => {
                                      to="/createoccurrences" 
                                      fontSize="20px" 
                                      fontWeight="bold" 
-                                >Create Events
+                                >Create Occurrences
                                 </MenuItem>
 
                                 <MenuItem as={Link}
@@ -46,13 +46,13 @@ const Navbar = ({accounts,connectwallet}) => {
                                      to="/exploreoccurrences" 
                                      fontSize="20px" 
                                      fontWeight="bold" 
-                                >Explore Events
+                                >Explore Occurrences
                                 </MenuItem>
 
                             </MenuList>
                         </Menu>
-                        <Button as={Link} varient="link" backgroundColor= "rgb(12, 20, 69)"  color="blue.100" colorScheme="blue" to="/workingmechanism" fontSize="20px" fontWeight="bold" > How it works ?</Button>
-                        <Button as={Link} varient="link" backgroundColor= "rgb(12, 20, 69)" color="blue.100" colorScheme="blue" to="/pricing" fontSize="20px" fontWeight="bold"> Pricing plans</Button>
+                        <Button as={Link} varient="link" backgroundColor= "rgb(12, 20, 69)"  color="blue.100" colorScheme="blue" to="/functionality" fontSize="20px" fontWeight="bold" > How it works ?</Button>
+                        <Button as={Link} varient="link" backgroundColor= "rgb(12, 20, 69)" color="blue.100" colorScheme="blue" to="/pricingplans" fontSize="20px" fontWeight="bold"> Pricing plans</Button>
                     </HStack>
                 </HStack>
                     

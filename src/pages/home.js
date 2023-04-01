@@ -43,8 +43,8 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
            
         }
 
-        const ptbalance = await coastatokencontract.balanceOf(accounts[0]);
-        const balance = Number(ptbalance)/1e18;
+        const ctbalance = await coastatokencontract.balanceOf(accounts[0]);
+        const balance = Number(ctbalance)/1e18;
         setbalancestatment ("Your $CT balance is ");
         setbalance(balance);
         
@@ -311,10 +311,10 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
               
              <Box fontSize="20px" fontWeight="bold" >
                   <Flex justify="center" color="blue.100" >
-                      Made with {"\u2665" } By: Blessing
+                      Author: Blessing
                   </Flex>
                       <HStack spacing='24px' justify="center" color="blue.100" >
-                          <a href="https://www.linkedin.com/in/BlessingAdebayo/">Linkedin</a> 
+                          <a href="https://www.linkedin.com/in/blessing-adebayo-a60851240/">Linkedin</a> 
                           <a href="https://github.com/BlessingAdebayo/">GitHub</a>
                           <a href="##"> Blogs</a>
                       </HStack>

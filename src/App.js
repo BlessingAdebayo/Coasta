@@ -7,9 +7,9 @@ import detectZoom from 'detect-zoom';
 import Navbar from './pages/navbar.js';
 import HOME from './pages/home.js';
 import PRICINGPLANS from './pages/pricingplans';
-import EXPLOREEVENTS from './pages/explore_occurrences';
-import CREATEEVENTS from './pages/create_occurrences.js';
-import WORKINGMECHANISM from './pages/functionality.js';
+import EXPLOREOCCURRENCES from './pages/explore_occurrences';
+import CREATEOCCURRENCES from './pages/create_occurrences.js';
+import FUNCTIONALITY from './pages/functionality.js';
 import coastatokenabiobject from './ContractsAbi/coastatoken.json';
 import subplanstokensabiobject from './ContractsAbi/subplanstokens.json';
 import coastaabiobject from './ContractsAbi/coasta.json';
@@ -93,10 +93,10 @@ function App() {
         <Routes>
           <Route path= "/" element={ <HOME accounts={accounts} coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract}/>}/>
           <Route path= "/home" element={ <HOME />}/>
-          <Route path= "/exploreevents" element={ <EXPLOREEVENTS accounts={accounts} coastacontract ={coastacontract}/>}/>
-          <Route path= "/createevents" element={ <CREATEEVENTS accounts={accounts} coastacontract = {coastacontract}/>}/>
-          <Route path= "/workingmechanism" element={ <WORKINGMECHANISM />}/>
-          <Route path= "/pricing" element={ <PRICINGPLANS coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract} />}/>
+          <Route path= "/exploreoccurrences" element={ <EXPLOREOCCURRENCES accounts={accounts} coastacontract ={coastacontract}/>}/>
+          <Route path= "/createoccurrences" element={ <CREATEOCCURRENCES accounts={accounts} coastacontract = {coastacontract}/>}/>
+          <Route path= "/functionality" element={ <FUNCTIONALITY />}/>
+          <Route path= "/pricingplans" element={ <PRICINGPLANS coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract} />}/>
           
           
         </Routes>
