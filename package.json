@@ -1,15 +1,10 @@
-{
-  "name": "coastadapp",
-  "version": "0.1.0",
+"version": "0.1.0",
   "private": true,
-  "author": "Blessing",
-  "git repository": "https://github.com/BlessingAdebayo/Coasta.git",
   "dependencies": {
     "@chakra-ui/icons": "^2.0.15",
-    "@chakra-ui/react": "^2.5.4",
+    "@chakra-ui/react": "^2.4.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "@nomiclabs/hardhat-ethers": "^2.2.2",
     "@openzeppelin/contracts": "^4.8.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -52,9 +47,8 @@
     ]
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
-    "@nomiclabs/hardhat-etherscan": "^3.1.7",
-    "@nomiclabs/hardhat-ethers": "^2.2.2",    
-    "hardhat": "^2.13.0"
+    "@nomicfoundation/hardhat-toolbox": "^2.0.1",
+    "@nomiclabs/hardhat-ethers": "^2.2.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.5"
   }
 }
