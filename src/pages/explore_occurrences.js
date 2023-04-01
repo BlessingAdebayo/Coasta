@@ -12,7 +12,7 @@ import { useToast } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 
 
-const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
+const EXPLOREEVENTS = ({accounts,coastacontract}) => {
   const iswalletconnected = Boolean(accounts[0]);
   const [allmarketoccurrences,setallmarketoccurrences] = useState([]);
   const [currentoccurrenceid,setcurrentoccurrenceid] = useState();
@@ -25,12 +25,12 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
     const occurrenceslength = occurrences.length;
     let alloccurrences = [];
     for (let i = 0 ; i < occurrenceslength ; i++){
-        let  occurrenceclassmarket;
+        let  occurrenceclasssmarket;
         const occurrencecreator = occurrences[i].OccurrenceCreator;
         const occurrenceid = occurrences[i].OccurrenceId;
         const occurrencename = occurrences[i].OccurrenceName;
         const occurrencedescription = occurrences[i].OccurrenceDescription;
-        const occurrenceclass = occurrences[i].OccurrenceClass;
+        const occurrenceclasss = occurrences[i].OccurrenceClass;
         const occurrenceyesvotes = occurrences[i].YesVotes;
         const occurrencenovotes = occurrences[i].NoVotes;
         let occurrenceisended = occurrences[i].IsEnded;
@@ -46,18 +46,18 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
             occurrencenopercentage = 0 ;
         }
 
-        if (Number(occurrenceclass) == 1){
-             occurrenceclassmarket = "Financial";
+        if (Number(occurrenceclasss) == 1){
+             occurrenceclasssmarket = "Financial";
         }
-        if (Number(occurrenceclass) == 2){
-             occurrenceclassmarket = "Sport";
+        if (Number(occurrenceclasss) == 2){
+             occurrenceclasssmarket = "Sport";
         }
-        if (Number(occurrenceclass) == 3){
-             occurrenceclassmarket = "Social";
+        if (Number(occurrenceclasss) == 3){
+             occurrenceclasssmarket = "Social";
         }
 
      
-        alloccurrences.push({occurrencecreator : occurrencecreator ,occurrenceid:Number(occurrenceid) , occurrencename:occurrencename , occurrencedescription:occurrencedescription , occurrenceclass: occurrenceclassmarket , occurrenceyesvotes: occurrenceyespercentage , occurrencenovotes:occurrencenopercentage , occurrenceisended: occurrenceisended});
+        alloccurrences.push({occurrencecreator : occurrencecreator ,occurrenceid:Number(occurrenceid) , occurrencename:occurrencename , occurrencedescription:occurrencedescription , occurrenceclasss: occurrenceclasssmarket , occurrenceyesvotes: occurrenceyespercentage , occurrencenovotes:occurrencenopercentage , occurrenceisended: occurrenceisended});
     }
     setallmarketoccurrences(alloccurrences);
   }
@@ -77,10 +77,10 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
             }
         }
         catch(error){
-            if (error.reason === "execution reverted: You need to subscribe on predicta to vote on occurrences"){
+            if (error.reason === "execution reverted: You need to subscribe on coasta to vote on occurrences"){
                 toast({
                     title: 'Voting on Occurrence failed',
-                    description: "You need to subscribe on predicta to vote on occurrences",
+                    description: "You need to subscribe on coasta to vote on occurrences",
                     status: 'error',
                     duration: 2600,
                     isClosable: true,
@@ -126,10 +126,10 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
         }
     }
     catch(error){
-        if (error.reason === "execution reverted: You need to subscribe on predicta to vote on occurrences"){
+        if (error.reason === "execution reverted: You need to subscribe on coasta to vote on occurrences"){
             toast({
                 title: 'Voting on Occurrence failed',
-                description: "You need to subscribe on predicta to vote on occurrences",
+                description: "You need to subscribe on coasta to vote on occurrences",
                 status: 'error',
                 duration: 2600,
                 isClosable: true,
@@ -325,7 +325,7 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
 
                                                                 <Box height="40px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        Class: {occurrence.occurrenceclass}
+                                                                        Class: {occurrence.occurrenceclasss}
                                                                     </Text>
                                                                 </Box>
                                                                 <Box height="40px" width="320px">
@@ -543,4 +543,4 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
     );
 };
 
-export default EXPLOREOCCURRENCES;
+export default EXPLOREEVENTS;

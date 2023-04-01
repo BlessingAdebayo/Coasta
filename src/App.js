@@ -7,9 +7,9 @@ import detectZoom from 'detect-zoom';
 import Navbar from './pages/navbar.js';
 import HOME from './pages/home.js';
 import PRICINGPLANS from './pages/pricingplans';
-import EXPLOEROCCURRENCES from './pages/explore_occurrences';
-import CREATEOCCURRENCES from './pages/create_occurrences';
-import FUNCTIONALITY from './pages/functionality';
+import EXPLOREEVENTS from './pages/explore_occurrences';
+import CREATEEVENTS from './pages/create_occurrences.js';
+import WORKINGMECHANISM from './pages/functionality.js';
 import coastatokenabiobject from './ContractsAbi/coastatoken.json';
 import subplanstokensabiobject from './ContractsAbi/subplanstokens.json';
 import coastaabiobject from './ContractsAbi/coasta.json';
@@ -20,13 +20,13 @@ function App() {
   const toast = useToast();
 
   const [coastatokencontract, setcoastatokencontract] = useState({});
-  const [subplanstokenscontract, setsubplanstokencontract] = useState({});
+  const [subplanstokenscontract, setsubplanstokenscontract] = useState({});
   const [coastacontract, setcoastacontract] = useState({});
 
 
-  const coastatokenaddress = "0x07EB45D07Ec16Cf578526f3C2A9C823E41221eF2";
-  const subplanstokensaddress = "0xe2d97FFdf0d8Ff6740b44A970c9769863e51223B";
-  const coastaaddress = "0x81A3ac5C01C18EB7b2B8585d023573Cb3e3EC8Fe";
+  const coastatokenaddress = "0x021Fd8D5CE323D33Af56F3A3c92733C7b5AC468F";
+  const subplanstokensaddress = "0x770dA8cdD24406cA79b8BD6845fA08fF5c181C0F";
+  const coastadappcontractaddress = "0x463BB354292b28b9f95e7CE0B8130Ff2Dd44f5DF";
 
 
   const  connectwallet = async () => {
@@ -55,7 +55,7 @@ function App() {
     else {
       toast({
         title: 'Error! MetaMask Not Found',
-        description: "You have not installed MetaMask, Please install MetaMask extension",
+        description: "You have not installed MetaMask",
         status: 'error',
         duration: 2200,
         isClosable: true,
@@ -74,10 +74,10 @@ function App() {
   //wbtc
   const connectsubplanstokenscontract = async (signer) => {
     const subplanstokens = new ethers.Contract(subplanstokensaddress,subplanstokensabiobject.subplanstokensabi,signer);
-    setsubplanstokencontract(subplanstokens);
+    setsubplanstokenscontract(subplanstokens);
   }
   const connectcoastacontract = async (signer) => {
-    const coasta = new ethers.Contract(coastaaddress,coastaabiobject.coastaabi,signer);
+    const coasta = new ethers.Contract(coastadappcontractaddress,coastaabiobject.coastaabi,signer);
     setcoastacontract(coasta);
   }
 
@@ -93,10 +93,10 @@ function App() {
         <Routes>
           <Route path= "/" element={ <HOME accounts={accounts} coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract}/>}/>
           <Route path= "/home" element={ <HOME />}/>
-          <Route path= "/exploreoccurrences" element={ <EXPLOEROCCURRENCES accounts={accounts} coastacontract ={coastacontract}/>}/>
-          <Route path= "/createoccurrences" element={ <CREATEOCCURRENCES accounts={accounts} coastacontract = {coastacontract}/>}/>
-          <Route path= "/functionality" element={ <FUNCTIONALITY />}/>
-          <Route path= "/pricingplans" element={ <PRICINGPLANS coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract} />}/>
+          <Route path= "/exploreevents" element={ <EXPLOREEVENTS accounts={accounts} coastacontract ={coastacontract}/>}/>
+          <Route path= "/createevents" element={ <CREATEEVENTS accounts={accounts} coastacontract = {coastacontract}/>}/>
+          <Route path= "/workingmechanism" element={ <WORKINGMECHANISM />}/>
+          <Route path= "/pricing" element={ <PRICINGPLANS coastatokencontract={coastatokencontract} subplanstokenscontract={subplanstokenscontract} />}/>
           
           
         </Routes>

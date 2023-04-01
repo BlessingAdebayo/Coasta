@@ -22,21 +22,21 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
             
 
         }
-      }, [iswalletconnected, toast])
+      }, [])
 
-    const createoccurrence = async ()=>{
+    const createoccurrences = async ()=>{
         try{
             const occurrencename = document.getElementById('occurrencename').value;
             const occurrencedescription = document.getElementById('occurrencedescription').value;
-            const classs = document.getElementById("chooseoccurrenceclass");
+            const classs = document.getElementById("chooseoccurrenceclasss");
             var classsname = classs.options[classs.selectedIndex].value;
-            
+            // Financial classs
             if (classsname === "lifestyle"){
                 const createlifestyletx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,1)).wait();
                 if ( createlifestyletx.hash ||createlifestyletx.transactionHash){
                     toast({
                         title: 'Creating Occurrence success',
-                        description: "You have created an occurrence successfully ",
+                        description: "You have created occurrence successfully ",
                         status: 'success',
                         duration: 2600,
                         isClosable: true,
@@ -47,10 +47,10 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
 
             }
 
-             
-            if (classsname === "match"){
-                const creatematchtx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,2)).wait();
-                if ( creatematchtx.hash ||creatematchtx.transactionHash){
+            // Sport classs
+            if (classsname === "matches"){
+                const creatematchestx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,2)).wait();
+                if ( creatematchestx.hash ||creatematchestx.transactionHash){
                     toast({
                         title: 'Creating Occurrence success',
                         description: "You have created occurrence successfully ",
@@ -64,9 +64,9 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
                 
             }
 
-            
+            // Social classs
             if (classsname === "social"){
-                    const createsocialtx = await (await coastacontract.createoccurrence(occurrencename,occurrencedescription,3)).wait();
+                    const createsocialtx = await (await coastacontract.CreateOccurrence(occurrencename,occurrencedescription,3)).wait();
                     if ( createsocialtx.hash ||createsocialtx.transactionHash){
                         toast({
                             title: 'Creating Occurrence success',
@@ -84,7 +84,7 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
             }
         }
         catch(error){
-            if (error.reason === "execution reverted: YOu have to be contract owner or delux user to create events"){
+            if (error.reason === "execution reverted: YOu have to be contract owner or delux user to create occurrences"){
                 toast({
                     title: 'Creating Occurrence failed',
                     description: "You are not delux user!",
@@ -114,15 +114,15 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
                     <Input id = "occurrencename" color="blue.200" type='text' maxLength="20" placeholder="Occurrence name" variant='outline' borderWidth={2} borderColor="blue.800" fontSize={22}   height="60px"   />
                     <br></br><br></br>
                     <FormLabel htmlfor= "occurrencedescription"  color="blue.400"  fontSize="24px" fontWeight="bold" >Description</FormLabel>
-                    <Input id = "occurencedescription" type='text' color="blue.200" maxLength="65"  borderWidth={2} borderColor="blue.800" placeholder="Event description" height="90px" variant='outline' fontSize={22}/>
+                    <Input id = "occurrencedescription" type='text' color="blue.200" maxLength="65"  borderWidth={2} borderColor="blue.800" placeholder="Occurrence description" height="90px" variant='outline' fontSize={22}/>
                     <br></br><br></br>
                     
-                    <FormLabel  htmlfor= "occurrenceclass" color="blue.400"  fontSize="24px" fontWeight="bold">Class</FormLabel>
-                    <Select id="chooseoccurrenceclass" fontSize={20} height="60px" width="485px" borderWidth={2} borderColor="blue.800" color="blue.500"    >
+                    <FormLabel  htmlfor= "occurrenceclasss" color="blue.400"  fontSize="24px" fontWeight="bold">Category</FormLabel>
+                    <Select id="chooseoccurrenceclasss" fontSize={20} height="60px" width="485px" borderWidth={2} borderColor="blue.800" color="blue.500"    >
                                     
-                                    <option value="" disabled selected hidden>Choose Occurrence Class</option>
-                                    <option  value='lifestyle'  > Lifestyle</option>
-                                    <option value='matches'>Matches</option>
+                                    <option value="" disabled selected hidden>Choose Occurrence Category</option>
+                                    <option  value='lifestyle'  > Financial</option>
+                                    <option value='matches'>Sport</option>
                                     <option value='social'>Social</option>
                                   
                     </Select>
@@ -141,9 +141,9 @@ const CREATEOCCURRENCES = ({accounts,coastacontract}) => {
                             fontSize={30}
                         
                             type='submit'
-                            onClick={createoccurrence}
+                            onClick={createoccurrences}
                             
-                            >Create Event
+                            >Create Occurrence
                         </Button>
                     </Flex>
 

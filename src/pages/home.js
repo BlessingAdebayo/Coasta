@@ -30,7 +30,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
         const ctamount = document.getElementById('ctamount').value;
         const ctamount_ethformat = ethers.utils.parseEther(ctamount.toString());
 
-        const getct = await (await coastatokencontract.GetSomePredictaTestTokens(ctamount_ethformat)).wait();
+        const getct = await (await coastatokencontract.GetSomeCoastaTestTokens(ctamount_ethformat)).wait();
         if ( getct.hash ||getct.transactionHash){
             toast({
                 title: 'Earning success',
@@ -43,8 +43,8 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
            
         }
 
-        const ctbalance = await coastatokencontract.balanceOf(accounts[0]);
-        const balance = Number(ctbalance)/1e18;
+        const ptbalance = await coastatokencontract.balanceOf(accounts[0]);
+        const balance = Number(ptbalance)/1e18;
         setbalancestatment ("Your $CT balance is ");
         setbalance(balance);
         
@@ -75,7 +75,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
                                   Analyze, Predict, and Earn
                                </Flex>
                                <Box fontSize="33px" fontFamily=" Papyrus" fontWeight="bold" bgClip='text' width={820} bgGradient='linear(to-r,cyan.100, blue.100)'>
-                                    Predicta is a decentralized prediction and earning application that users can subscribe to it by minting NFTS and predict different markets. Predicta is deployed on Mumbai Polygon network.
+                                    Coasta is a decentralized prediction and earning application that users can subscribe to it by minting TOKENS and predict different markets. Coasta is deployed on Mumbai Polygon network.
                                </Box>
                        </Box>
                        <Box>
@@ -94,7 +94,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
 <br></br><br></br><br></br><br></br>
               <Box h="610px" justify="center" >
                       <Flex justify="center" fontFamily=" Garamond"  fontWeight='extrabold' fontSize="50px" bgClip='text'  color="blue.200" padding={10} mt={40}>
-                          Predicta Features
+                          Coasta Features
                       </Flex>
                       <Flex justify="center" >
 
@@ -102,19 +102,19 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
 
                       <Feature
                           
-                          desc='Coasta is where users can predict different class of event(occurrence) and earn its own ERC-20 token ($PT).  '
+                          desc='Coasta Users can predict different markets and earn own own Token ($CT).  '
                       />
                          <Feature
                           
-                          desc='  Users will subscribe by minting Tokens (Essential, Moderate, and Delux plans).'
+                          desc='  Users can subscribe by minting TOKENs (Essential, Moderate, and Delux plans).'
                       />
                          <Feature
                           
-                          desc='Users may have different voting power on different class (Lifestyle, matches, and social).'
+                          desc='Users can have different voting power on different markets (Lifestyle, Matches, and Social).'
                       />
                          <Feature
                           
-                          desc='Each user has maximum voting count on different events based on their subscription plan. '
+                          desc='Each user has maximum voting count on different occurrences based on his subscription plan. '
                       />
                       
                      
@@ -129,13 +129,13 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
 
               <Box h="512px" justify="center">
                       <Flex justify="center" fontFamily=" Garamond"  fontWeight='extrabold' fontSize="50px" bgClip='text'  color="blue.200" padding={10}>
-                          Explore Predicta
+                          Explore Coasta
                       </Flex>
                       <Flex justify="center"  fontSize="38px" fontFamily=" Papyrus" fontWeight="bold" bgClip='text'  bgGradient='linear(to-r,cyan.100, blue.100)' >
-                            To partcipate in events, users have to mint NFTS by paying with Predicta token ($PT). 
+                            To partcipate in occurrences, users have to mint TOKENS by paying with Coasta token ($CT). 
                       </Flex>
                       <Flex justify="center"  fontSize="38px" fontFamily=" Papyrus" fontWeight="bold" bgClip='text'  bgGradient='linear(to-r,cyan.100, blue.100)' >
-                            You can earn test matic and $PT.
+                            You can earn test matic and $CT.
                       </Flex>
                       <br></br>
                       <Flex justify="center">
@@ -152,7 +152,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
                             fontFamily=" Garamond"
                             as={Link} 
                             varient="link" 
-                            to="/exploreevents"
+                            to="/exploreoccurrences"
                         >Explore</Button>
 
                         </Box>
@@ -181,7 +181,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
                         <ModalBody >
                         <Tabs variant='unstyled' isFitted>
                             <TabList>
-                                <Tab _selected={{ color: 'white', bg: 'blue.700' }} fontSize={20}> Coasta test tokens </Tab>
+                                <Tab _selected={{ color: 'white', bg: 'blue.700' }} fontSize={20}> Predita test tokens </Tab>
                                 <Tab _selected={{ color: 'white', bg: 'blue.700' }} fontSize={20}> MATIC mumbai polygon</Tab>
                             </TabList>
                     <TabPanels>
@@ -200,7 +200,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
                         <FormLabel for="amountin" fontSize={23} > Amount</FormLabel>
                         <HStack spacing='24px'>
                             <Box w='350px' h='60px' bg='white'>
-                                <Input id="ptamount" variant='outline' placeholder='0.0' height="60px" width="450px" borderWidth={1}  fontSize={25} />
+                                <Input id="ctamount" variant='outline' placeholder='0.0' height="60px" width="450px" borderWidth={1}  fontSize={25} />
                             </Box>
                           
                            
@@ -251,7 +251,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
                             Connect Wallet 
                         </Flex>
                         <Flex justify = "center" fontFamily="Lucida Console"  fontSize="20px" fontWeight="extrabold" >
-                            To earn $PT tokens to test Predicta.
+                            To earn $CT tokens to test Coasta.
                         </Flex>
                  
                     </Box>
@@ -314,9 +314,9 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
                       Made with {"\u2665" } By: Blessing
                   </Flex>
                       <HStack spacing='24px' justify="center" color="blue.100" >
-                          <a href="https://www.linkedin.com/in/blessing-adebayo-a60851240/">Linkedin</a> 
+                          <a href="https://www.linkedin.com/in/BlessingAdebayo/">Linkedin</a> 
                           <a href="https://github.com/BlessingAdebayo/">GitHub</a>
-                          <a href="#/"> Blogs</a>
+                          <a href="##"> Blogs</a>
                       </HStack>
               </Box>
 

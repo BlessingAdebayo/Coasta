@@ -1,4 +1,6 @@
-"version": "0.1.0",
+{
+  "name": "predictadapp",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@chakra-ui/icons": "^2.0.15",

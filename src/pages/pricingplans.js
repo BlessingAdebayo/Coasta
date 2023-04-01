@@ -4,7 +4,7 @@ import { useToast } from '@chakra-ui/react'
 
 import { Link } from "react-router-dom";
 
-const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
+const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
   const [essentialminting , setessentialminiting] = useState("Mint");
   const [moderateminting , setmoderateminting] = useState("Mint");
   const [deluxminting , setdeluxminting] = useState("Mint");
@@ -22,29 +22,29 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
 
   useEffect(()=>{
     getsubscribitonfees();
-    getmytokenclass();
+    getmytokenclasss();
   },[])
 
   const getsubscribitonfees = async ()=>{
     const essentialtokenfees = await subplanstokenscontract.GetEssentialMintingFees();
     const moderatetokenfees = await subplanstokenscontract.GetModerateMintingFees();
     const deluxtokenfees = await subplanstokenscontract.GetDeluxMintingFees();
-    setessentialfees(essencialtokenfees);
+    setessentialfees(essentialtokenfees);
     setmoderatefees(moderatetokenfees);
     setdeluxfees(deluxtokenfees);
   }
 
-  const getmytokenclass = async ()=>{
-    const myclass = await subplanstokenscontract.GetTOKENClassOfUser();
-    if (Number(myclass) == 1){
+  const getmytokenclasss = async ()=>{
+    const myclasss = await subplanstokenscontract.GetTOKENClassOfUser();
+    if (Number(myclasss) == 1){
       setessentialminiting("Cancel");
       setissubscribedessential(1);
     }
-    if (Number(myclass) == 2){
+    if (Number(myclasss) == 2){
       setmoderateminting("Cancel");
       setissubscribedmoderate(1);
     }
-    if (Number(myclass) == 3){
+    if (Number(myclasss) == 3){
       setdeluxminting("Cancel");
       setissubscribeddelux(1);
     }
@@ -58,10 +58,10 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
   const subscribeandcancelessentialplan = async () =>{
     try{
       if (essentialminting === "Mint"){
-        if (issubscribedessential == 1){
+        if (issubscribedmoderate == 1){
           toast({
             title: 'Subscription failed',
-            description: "Error! You are aleardy in essential plan",
+            description: "Error! You are aleardy in moderate plan",
             status: 'error',
             duration: 2600,
             isClosable: true,
@@ -90,8 +90,8 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
                 position: 'top-left',   
             });
           }
-          const mintessentialtoken =  await (await subplanstokenscontract.MintNFT(1) ).wait();
-          if ( mintessentialtoken.hash || mintessential.transactionHash){
+          const mintessentialtoken =  await (await subplanstokenscontract.MintTOKEN(1) ).wait();
+          if ( mintessentialtoken.hash || mintessentialtoken.transactionHash){
             toast({
                 title: 'Subscription success',
                 description: "Congratulations! You have subscribed to essential plan",
@@ -164,7 +164,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
                 position: 'top-left',   
             });
           }
-          const mintmoderatetoken =  await (await subplanstokenscontract.MintNFT(2) ).wait();
+          const mintmoderatetoken =  await (await subplanstokenscontract.MintTOKEN(2) ).wait();
           if ( mintmoderatetoken.hash || mintmoderatetoken.transactionHash){
             toast({
                 title: 'Subscription success',
@@ -269,7 +269,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
     catch(error){
       if (error.reason === "execution reverted: ERC20: transfer amount exceeds balance"){
         toast({
-            title: 'Minting NFT failed',
+            title: 'Minting TOKEN failed',
             description: "You don't have enough balance of $CT",
             status: 'error',
             duration: 2600,
@@ -300,7 +300,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
                   >  
                   <Box>
                       <Flex justify="center" fontFamily=" Nirmala UI" fontWeight='extrabold' fontSize="77px" bgClip='text'  bgGradient='linear(to-r, cyan.400, red.600)' padding={10}>
-                          Subscribe to Predicta by Minting NFTs
+                          Subscribe to Coasta by Minting TOKENs
                       </Flex>
                   </Box>
             <br></br>
@@ -316,16 +316,16 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
                           align='stretch'
                           >  
                             <Flex h={8} w="180px" justify="center" >
-                              <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Basic</Text>
+                              <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Essential</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
-                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 20 $Predicta</Text>
+                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 20 $Coasta</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
                               <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">5 Maximum votes</Text>
                             </Flex>
                             <Flex h={8} w="320px" justify="center">
-                              <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">No events creation</Text>
+                              <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">No occurrences creation</Text>
                             </Flex>
                             <Button 
                               backgroundColor="blue.600"
@@ -351,16 +351,16 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
                           align='stretch'
                           >  
                             <Flex h={8} w="180px" justify="center">
-                              <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Intermediate</Text>
+                              <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Moderate</Text>
                             </Flex>
                            <Flex h={5} w="320px" justify="center">
-                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 50 $Predicta</Text>
+                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 50 $Coasta</Text>
                           </Flex>
                           <Flex h={5} w="320px" justify="center">
                               <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">10 Maximum votes</Text>
                             </Flex>
                           <Flex h={8} w="320px" justify="center">
-                              <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">No events creation</Text>
+                              <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">No occurrences creation</Text>
                           </Flex>
                             <Button 
                               backgroundColor="blue.600"
@@ -386,10 +386,10 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
                           align='stretch'
                           >  
                             <Flex h={8} w="180px" justify="center">
-                              <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Premium</Text>
+                              <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Delux</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
-                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 100 $Predicta</Text>
+                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 100 $Coasta</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
                               <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">20 Maximum votes</Text>
@@ -436,18 +436,3 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokens}) => {
 };
 
 export default PRICINGPLANS;
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-

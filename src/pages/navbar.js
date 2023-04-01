@@ -32,7 +32,7 @@ const Navbar = ({accounts,connectwallet}) => {
                                      color="blue.200" 
                                      bgColor="rgb(12, 20, 69)"
                                      colorScheme="blue" 
-                                     to="/createevents" 
+                                     to="/createoccurrences" 
                                      fontSize="20px" 
                                      fontWeight="bold" 
                                 >Create Events
@@ -43,7 +43,7 @@ const Navbar = ({accounts,connectwallet}) => {
                                      color="blue.200" 
                                      bgColor="rgb(12, 20, 69)"
                                      colorScheme="blue" 
-                                     to="/exploreevents" 
+                                     to="/exploreoccurrences" 
                                      fontSize="20px" 
                                      fontWeight="bold" 
                                 >Explore Events
