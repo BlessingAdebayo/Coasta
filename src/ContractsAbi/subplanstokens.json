@@ -1,8 +1,4 @@
-{
-  "_format": "hh-sol-artifact-1",
-  "contractName": "SubPlansTokens",
-  "sourceName": "contracts/SubPlansTokens.sol",
-  "abi": [
+[
     {
       "inputs": [
         {
@@ -489,4 +485,3 @@
       "type": "function"
     }
   ]
-}
