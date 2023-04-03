@@ -319,7 +319,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
                               <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Essential</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
-                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 20 $Coasta</Text>
+                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 10 $Coasta</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
                               <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">5 Maximum votes</Text>
@@ -354,7 +354,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
                               <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Moderate</Text>
                             </Flex>
                            <Flex h={5} w="320px" justify="center">
-                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 50 $Coasta</Text>
+                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 25 $Coasta</Text>
                           </Flex>
                           <Flex h={5} w="320px" justify="center">
                               <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">10 Maximum votes</Text>
@@ -389,13 +389,13 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
                               <Text mt={1} fontSize="35px" fontWeight='extrabold' fontFamily=" Nirmala UI" color="blue.300" ml="75%">Delux</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
-                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 100 $Coasta</Text>
+                              <Text mt={1} fontSize="22px" color="blue.200" fontWeight="bold">Mint for: 50 $Coasta</Text>
                             </Flex>
                             <Flex h={5} w="320px" justify="center">
                               <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold">20 Maximum votes</Text>
                             </Flex>
                           <Flex h={8} w="320px" justify="center">
-                              <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold"> Events creation</Text>
+                              <Text mt={1} fontSize="19px" color="blue.200" fontWeight="bold"> Occurrences creation</Text>
                           </Flex>
 
                             <Button 
