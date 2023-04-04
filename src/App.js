@@ -24,9 +24,9 @@ function App() {
   const [coastacontract, setcoastacontract] = useState({});
 
 
-  const coastatokenaddress = "0x021Fd8D5CE323D33Af56F3A3c92733C7b5AC468F";
-  const subplanstokensaddress = "0x770dA8cdD24406cA79b8BD6845fA08fF5c181C0F";
-  const coastadappcontractaddress = "0x463BB354292b28b9f95e7CE0B8130Ff2Dd44f5DF";
+  const coastatokenaddress = "0x07EB45D07Ec16Cf578526f3C2A9C823E41221eF2";
+  const subplanstokensaddress = "0xe2d97FFdf0d8Ff6740b44A970c9769863e51223B";
+  const coastadappcontractaddress = "0x81A3ac5C01C18EB7b2B8585d023573Cb3e3EC8Fe";
 
 
   const  connectwallet = async () => {
