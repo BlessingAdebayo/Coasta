@@ -23,6 +23,24 @@ async function main() {
   await coasta.deployed();
 
   console.log(`Predicta application contract deployed with address: ${coasta.address}`);
+
+  // Verify CoastaToken contract
+  await hre.run("verify:verify", {
+    address: coastatoken.address,
+    constructorArguments: [],
+  });
+
+  // Verify SubPlansToken contract
+  await hre.run("verify:verify", {
+    address: subplanstokens.address,
+    constructorArguments: ["Essential", "Moderate", "Delux", coastatoken.address],
+  });
+
+  // Verify Coasta contract
+  await hre.run("verify:verify", {
+    address: coasta.address,
+    constructorArguments: [subplanstokens.address, coastatoken.address],
+  });
 }
 
 main().catch((error) => {
