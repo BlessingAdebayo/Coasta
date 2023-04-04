@@ -26,7 +26,7 @@ function App() {
 
   const coastatokenaddress = "0x021Fd8D5CE323D33Af56F3A3c92733C7b5AC468F";
   const subplanstokensaddress = "0x770dA8cdD24406cA79b8BD6845fA08fF5c181C0F";
-  const coastacontractaddress = "0x463BB354292b28b9f95e7CE0B8130Ff2Dd44f5DF";
+  const coastadappcontractaddress = "0x463BB354292b28b9f95e7CE0B8130Ff2Dd44f5DF";
 
 
   const  connectwallet = async () => {
@@ -77,7 +77,7 @@ function App() {
     setsubplanstokenscontract(subplanstokens);
   }
   const connectcoastacontract = async (signer) => {
-    const coasta = new ethers.Contract(coastacontractaddress,coastaabiobject.coastaabi,signer);
+    const coasta = new ethers.Contract(coastadappcontractaddress,coastaabiobject.coastaabi,signer);
     setcoastacontract(coasta);
   }
 
