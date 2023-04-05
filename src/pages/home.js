@@ -181,7 +181,7 @@ const HOME = ({accounts,coastatokencontract,subplanstokenscontract}) => {
                         <ModalBody >
                         <Tabs variant='unstyled' isFitted>
                             <TabList>
-                                <Tab _selected={{ color: 'white', bg: 'blue.700' }} fontSize={20}> Predita test tokens </Tab>
+                                <Tab _selected={{ color: 'white', bg: 'blue.700' }} fontSize={20}> Coasta test tokens </Tab>
                                 <Tab _selected={{ color: 'white', bg: 'blue.700' }} fontSize={20}> MATIC mumbai polygon</Tab>
                             </TabList>
                     <TabPanels>
