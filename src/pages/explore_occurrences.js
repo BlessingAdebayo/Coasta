@@ -26,14 +26,14 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
     let alloccurrences = [];
     for (let i = 0 ; i < occurrenceslength ; i++){
         let  occurrenceclasssmarket;
-        const occurrencecreator = occurrences[i].OccurrenceCreator;
+        const occurrencecreator = occurrences[i].OccurenceCreator;
         const occurrenceid = occurrences[i].OccurrenceId;
         const occurrencename = occurrences[i].OccurrenceName;
         const occurrencedescription = occurrences[i].OccurrenceDescription;
         const occurrenceclasss = occurrences[i].OccurrenceClass;
         const occurrenceyesvotes = occurrences[i].YesVotes;
         const occurrencenovotes = occurrences[i].NoVotes;
-        let occurrenceisended = occurrences[i].IsEnded;
+        let occurrenceisended = occurrences[i].IsClosed;
        
         let occurrenceyespercentage = ((Number(occurrenceyesvotes) / (Number(occurrenceyesvotes) + Number(occurrencenovotes))) *100).toFixed(2);;
 
@@ -47,10 +47,10 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
         }
 
         if (Number(occurrenceclasss) == 1){
-             occurrenceclasssmarket = "Financial";
+             occurrenceclasssmarket = "Lifestyle";
         }
         if (Number(occurrenceclasss) == 2){
-             occurrenceclasssmarket = "Sport";
+             occurrenceclasssmarket = "Matches";
         }
         if (Number(occurrenceclasss) == 3){
              occurrenceclasssmarket = "Social";
