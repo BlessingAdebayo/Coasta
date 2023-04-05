@@ -171,7 +171,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
         const yesornoending = document.getElementById("chooseyesornoending");
         var correctvote = yesornoending.options[yesornoending.selectedIndex].value;
         if (correctvote === "yes"){
-            const endoccurrenceyestx = await (await coastacontract.EndOccurrence(occurrenceid,1)).wait();
+            const endoccurrenceyestx = await (await coastacontract.CloseOccurrence(occurrenceid,1)).wait();
             if ( endoccurrenceyestx.hash || endoccurrenceyestx.transactionHash){
                 toast({
                     title: 'End Occurrence success',
@@ -185,7 +185,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
 
         }
         if (correctvote === "no"){
-            const endoccurrenceynotx = await (await coastacontract.EndOccurrence(occurrenceid,0)).wait();
+            const endoccurrenceynotx = await (await coastacontract.CloseOccurrence(occurrenceid,0)).wait();
             if ( endoccurrenceynotx.hash || endoccurrenceynotx.transactionHash){
                 toast({
                     title: 'End Occurrence success',

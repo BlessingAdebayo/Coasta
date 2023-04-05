@@ -35,7 +35,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
   }
 
   const getmytokenclasss = async ()=>{
-    const myclasss = await subplanstokenscontract.GetTOKENClassOfUser();
+    const myclasss = await subplanstokenscontract.GetTokensClassOfUser();
     if (Number(myclasss) == 1){
       setessentialminiting("Cancel");
       setissubscribedessential(1);
@@ -90,7 +90,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
                 position: 'top-left',   
             });
           }
-          const mintessentialtoken =  await (await subplanstokenscontract.MintTOKEN(1) ).wait();
+          const mintessentialtoken =  await (await subplanstokenscontract.MintTokens(1) ).wait();
           if ( mintessentialtoken.hash || mintessentialtoken.transactionHash){
             toast({
                 title: 'Subscription success',
@@ -106,7 +106,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
     }
     if(essentialminting==="Cancel"){
       
-      const cancelessential =  await (await subplanstokenscontract.CancelCurrentPlan(1) ).wait();
+      const cancelessential =  await (await subplanstokenscontract.TerminateCurrentPlan(1) ).wait();
       if ( cancelessential.hash || cancelessential.transactionHash){
         toast({
             title: 'Subscription cancellation success',
@@ -164,7 +164,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
                 position: 'top-left',   
             });
           }
-          const mintmoderatetoken =  await (await subplanstokenscontract.MintTOKEN(2) ).wait();
+          const mintmoderatetoken =  await (await subplanstokenscontract.MintTokens(2) ).wait();
           if ( mintmoderatetoken.hash || mintmoderatetoken.transactionHash){
             toast({
                 title: 'Subscription success',
@@ -180,7 +180,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
         }
     }
     if (moderateminting === "Cancel"){
-      const cancelmoderate=  await (await subplanstokenscontract.CancelCurrentPlan(2) ).wait();
+      const cancelmoderate=  await (await subplanstokenscontract.TerminateCurrentPlan(2) ).wait();
       if ( cancelmoderate.hash || cancelmoderate.transactionHash){
         toast({
             title: 'Subscription cancellation success',
@@ -236,7 +236,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
                 position: 'top-left',   
             });
           }
-          const mintdeluxtoken =  await (await subplanstokenscontract.MintTOKEN(3) ).wait();
+          const mintdeluxtoken =  await (await subplanstokenscontract.MintTokens(3) ).wait();
           if ( mintdeluxtoken.hash || mintdeluxtoken.transactionHash){
             toast({
                 title: 'Subscription success',
@@ -251,7 +251,7 @@ const PRICINGPLANS = ({coastatokencontract,subplanstokenscontract}) => {
         }
     }
       if (deluxminting === "Cancel"){
-        const canceldelux=  await (await subplanstokenscontract.CancelCurrentPlan(3) ).wait();
+        const canceldelux=  await (await subplanstokenscontract.TerminateCurrentPlan(3) ).wait();
         if ( canceldelux.hash || canceldelux.transactionHash){
           toast({
               title: 'Subscription cancellation success',
