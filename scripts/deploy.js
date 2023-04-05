@@ -22,7 +22,7 @@ async function main() {
   const coasta = await COASTA.deploy(subplanstokens.address, coastatoken.address);
   await coasta.deployed();
 
-  console.log(`Predicta application contract deployed with address: ${coasta.address}`);
+  console.log(`Coasta application contract deployed with address: ${coasta.address}`);
 
   // Verify CoastaToken contract
   await hre.run("verify:verify", {

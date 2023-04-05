@@ -26,7 +26,7 @@ function App() {
 
   const coastatokenaddress = "0x32513A8C14bDe6a373685235cF7656fE3476C90a";
   const subplanstokensaddress = "0x02D6c8b4cdd3c7efD1f89b15EA2E529DEd3a87a4";
-  const coastadappcontractaddress = "0x8438475553c49327A4eb1812ACF55d7c247ce6Fa";
+  const coastadappcontractaddress = "0x8438475553c49327A4eb1812ACF55d7c247ce6Fb";
 
 
   const  connectwallet = async () => {
