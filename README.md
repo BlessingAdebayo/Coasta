@@ -37,5 +37,9 @@ open browser and run: https://http://localhost:3000
 explore the app.
 
 Coasta contract verification link: https://mumbai.polygonscan.com/address/0x8438475553c49327A4eb1812ACF55d7c247ce6Fb#code
+
 Coasta Token contract verification link: https://mumbai.polygonscan.com/address/0x32513A8C14bDe6a373685235cF7656fE3476C90a#code
+
 SubPlans Tokens contract verification link: https://mumbai.polygonscan.com/address/0x02D6c8b4cdd3c7efD1f89b15EA2E529DEd3a87a4#code
+
+App live at: https://coasta.vercel.app
