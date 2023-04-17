@@ -1,5 +1,5 @@
-{"coastaabi":        
-[
+{
+  "coastaabi": [
     {
       "inputs": [
         {
@@ -65,7 +65,7 @@
           "components": [
             {
               "internalType": "address",
-              "name": "OccurenceCreator",
+              "name": "OccurrenceCreator",
               "type": "address"
             },
             {

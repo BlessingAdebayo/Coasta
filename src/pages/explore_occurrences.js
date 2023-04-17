@@ -26,7 +26,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
     let alloccurrences = [];
     for (let i = 0 ; i < occurrenceslength ; i++){
         let  occurrenceclasssmarket;
-        const occurrencecreator = occurrences[i].OccurenceCreator;
+        const occurrencecreator = occurrences[i].OccurrenceCreator;
         const occurrenceid = occurrences[i].OccurrenceId;
         const occurrencename = occurrences[i].OccurrenceName;
         const occurrencedescription = occurrences[i].OccurrenceDescription;

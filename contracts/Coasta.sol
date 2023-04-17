@@ -20,7 +20,7 @@ contract Coasta {
         ContractOwner = msg.sender;
     }   
     struct Occurrence {
-        address OccurenceCreator;
+        address OccurrenceCreator;
         uint256 OccurrenceId;
         string OccurrenceName;
         string OccurrenceDescription;
