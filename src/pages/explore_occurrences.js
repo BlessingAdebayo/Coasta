@@ -33,7 +33,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
         const occurrenceclasss = occurrences[i].OccurrenceClass;
         const occurrenceyesvotes = occurrences[i].YesVotes;
         const occurrencenovotes = occurrences[i].NoVotes;
-        let occurrenceisended = occurrences[i].IsClosed;
+        let occurrenceisclosed = occurrences[i].IsClosed;
        
         let occurrenceyespercentage = ((Number(occurrenceyesvotes) / (Number(occurrenceyesvotes) + Number(occurrencenovotes))) *100).toFixed(2);;
 
@@ -57,7 +57,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
         }
 
      
-        alloccurrences.push({occurrencecreator : occurrencecreator ,occurrenceid:Number(occurrenceid) , occurrencename:occurrencename , occurrencedescription:occurrencedescription , occurrenceclasss: occurrenceclasssmarket , occurrenceyesvotes: occurrenceyespercentage , occurrencenovotes:occurrencenopercentage , occurrenceisended: occurrenceisended});
+        alloccurrences.push({occurrencecreator : occurrencecreator ,occurrenceid:Number(occurrenceid) , occurrencename:occurrencename , occurrencedescription:occurrencedescription , occurrenceclasss: occurrenceclasssmarket , occurrenceyesvotes: occurrenceyespercentage , occurrencenovotes:occurrencenopercentage , occurrenceisclosed: occurrenceisclosed});
     }
     setallmarketoccurrences(alloccurrences);
   }
@@ -265,7 +265,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                                                                             </Text>
                                                                         </Box>
                                                                         {
-                                                                            occurrence.occurrenceisended ? (
+                                                                            occurrence.occurrenceisclosed ? (
                                                                         
                                                                         <Box>
                                                                             <Badge  fontSize={16} variant='outline' colorScheme='red'>
