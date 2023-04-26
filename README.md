@@ -27,19 +27,19 @@ Coasta is made with:
 
 ## Project set up
 
-clone this repo: https://github.com/BlessingAdebayo/Coasta.git
+clone this repo: <https://github.com/BlessingAdebayo/Coasta.git>
 
 nevigate to the directory on terminal
 
 run npm install or yarn install to install dependencies
 run npm start to start react app
-open browser and run: https://http://localhost:3000
+open browser and run: <https://http://localhost:3000>
 explore the app.
 
-Coasta contract verification link: https://mumbai.polygonscan.com/address/0x73c8fEe5554FbE6F5D39787F038F2eebDB9C7aa6#code
+Coasta contract verification link: <https://mumbai.polygonscan.com/address/0x73c8fEe5554FbE6F5D39787F038F2eebDB9C7aa6#code>
 
-Coasta Token contract verification link: https://mumbai.polygonscan.com/address/0x32513A8C14bDe6a373685235cF7656fE3476C90a#code
+Coasta Token contract verification link: <https://mumbai.polygonscan.com/address/0x32513A8C14bDe6a373685235cF7656fE3476C90a#code>
 
-SubPlans Tokens contract verification link: https://mumbai.polygonscan.com/address/0x02D6c8b4cdd3c7efD1f89b15EA2E529DEd3a87a4#code
+SubPlans Tokens contract verification link: <https://mumbai.polygonscan.com/address/0x02D6c8b4cdd3c7efD1f89b15EA2E529DEd3a87a4#code>
 
-App live at: https://coasta.vercel.app
+App live at: <https://coasta.vercel.app>
