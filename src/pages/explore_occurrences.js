@@ -12,7 +12,7 @@ import { useToast } from '@chakra-ui/react'
 import { useDisclosure } from '@chakra-ui/react'
 
 
-const EXPLOREEVENTS = ({accounts,coastacontract}) => {
+const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
   const iswalletconnected = Boolean(accounts[0]);
   const [allmarketoccurrences,setallmarketoccurrences] = useState([]);
   const [currentoccurrenceid,setcurrentoccurrenceid] = useState();
@@ -97,10 +97,10 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                     position: 'top-left',   
                 });
             }
-            if (error.reason === "execution reverted: the occurrence is ended"){
+            if (error.reason === "execution reverted: the occurrence is closed"){
                 toast({
                     title: 'Voting on Occurrence failed',
-                    description: "The occurrence was ended",
+                    description: "The occurrence was closed",
                     status: 'error',
                     duration: 2600,
                     isClosable: true,
@@ -146,10 +146,10 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                 position: 'top-left',   
             });
         }
-        if (error.reason === "execution reverted: the occurrence is ended"){
+        if (error.reason === "execution reverted: the occurrence is "){
             toast({
                 title: 'Voting on Occurrence failed',
-                description: "The occurrence was ended",
+                description: "The occurrence was closed",
                 status: 'error',
                 duration: 2600,
                 isClosable: true,
@@ -165,17 +165,17 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
 
  
 
-  const endoccurrences = async (occurrenceid) =>{
+  const closeoccurrences = async (occurrenceid) =>{
     try {
 
-        const yesornoending = document.getElementById("chooseyesornoending");
-        var correctvote = yesornoending.options[yesornoending.selectedIndex].value;
+        const yesornoclosing = document.getElementById("chooseyesornoclosing");
+        var correctvote = yesornoclosing.options[yesornoclosing.selectedIndex].value;
         if (correctvote === "yes"){
-            const endoccurrenceyestx = await (await coastacontract.CloseOccurrence(occurrenceid,1)).wait();
-            if ( endoccurrenceyestx.hash || endoccurrenceyestx.transactionHash){
+            const closeoccurrenceyestx = await (await coastacontract.CloseOccurrence(occurrenceid,1)).wait();
+            if ( closeoccurrenceyestx.hash || closeoccurrenceyestx.transactionHash){
                 toast({
-                    title: 'End Occurrence success',
-                    description: "You have ended the occurrence with Yes correct vote ",
+                    title: 'Close Occurrence success',
+                    description: "You have closed the occurrence with Yes correct vote ",
                     status: 'success',
                     duration: 2600,
                     isClosable: true,
@@ -185,11 +185,11 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
 
         }
         if (correctvote === "no"){
-            const endoccurrenceynotx = await (await coastacontract.CloseOccurrence(occurrenceid,0)).wait();
-            if ( endoccurrenceynotx.hash || endoccurrenceynotx.transactionHash){
+            const closeoccurrenceynotx = await (await coastacontract.CloseOccurrence(occurrenceid,0)).wait();
+            if ( closeoccurrenceynotx.hash || closeoccurrenceynotx.transactionHash){
                 toast({
-                    title: 'End Occurrence success',
-                    description: "You have ended the occurrence with No correct vote ",
+                    title: 'Close Occurrence success',
+                    description: "You have closed the occurrence with No correct vote ",
                     status: 'success',
                     duration: 2600,
                     isClosable: true,
@@ -204,9 +204,9 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
     }
     catch (error){
         
-        if (error.reason === "execution reverted: You could not end that occurrence, you are not the occurrence's creator"){
+        if (error.reason === "execution reverted: You could not close that occurrence, you are not the occurrence's creator"){
             toast({
-                title: 'Ending occurrence failed',
+                title: 'Closeing occurrence failed',
                 description: "You are not the occurrence creator",
                 status: 'error',
                 duration: 2600,
@@ -269,7 +269,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                                                                         
                                                                         <Box>
                                                                             <Badge  fontSize={16} variant='outline' colorScheme='red'>
-                                                                                Ended
+                                                                                Closed
                                                                             </Badge>
                                                                         </Box>
                                                                         )
@@ -303,7 +303,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                                                                                     setcurrentoccurrenceid(occurrence.occurrenceid);
                                                                                     onOpen();
                                                                                 }} >
-                                                                                    End Occurrence
+                                                                                    Close Occurrence
                                                                                 </MenuItem>
                      
                                                                             </MenuList>
@@ -415,7 +415,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                                     <Modal isOpen={isOpen} onClose={onClose} size="lg"  >
                                         <ModalOverlay />
                                         <ModalContent>
-                                        <ModalHeader  fontSize={22} fontWeight="bold">End Occurrence</ModalHeader>
+                                        <ModalHeader  fontSize={22} fontWeight="bold">Close Occurrence</ModalHeader>
                                         <ModalCloseButton />
                                         <ModalBody>
                                             <VStack
@@ -428,7 +428,7 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                                                 <FormLabel  fontSize={25} > Correct Vote</FormLabel>
                                                 <HStack spacing='24px'>
                                                     <Box w='350px' h='60px' bg='white'>
-                                                        <Select id="chooseyesornoending" fontSize={21} height="65px" width="465px" borderWidth={2} borderColor="black" color="black"    >
+                                                        <Select id="chooseyesornoclosing" fontSize={21} height="65px" width="465px" borderWidth={2} borderColor="black" color="black"    >
                                                             <option value="" disabled selected hidden>Choose correct vote</option>
                                                             <option  value='yes'  > Yes</option>
                                                             <option value='no'>No</option>
@@ -457,14 +457,14 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
                                                 
                                                 type="submit"
                                                 onClick={ ()=>{
-                                                    endoccurrences(currentoccurrenceid)
+                                                    closeoccurrences(currentoccurrenceid)
 
                                                 }
                                                     }
                                             
                                                 
                                                 
-                                                >End
+                                                >Close
                                                 </Button>
                                             
 
@@ -543,4 +543,4 @@ const EXPLOREEVENTS = ({accounts,coastacontract}) => {
     );
 };
 
-export default EXPLOREEVENTS;
+export default EXPLOREOCCURRENCES;

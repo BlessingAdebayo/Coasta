@@ -43,11 +43,11 @@ contract Coasta {
     }
 
         function CloseOccurrence (uint256 _OccurrenceId, uint256 _OccurrenceRightVote) public {
-        require (IsCreatedThatOccurrence[msg.sender][_OccurrenceId] == true , "You can not end that Occurrence, you are not the Occurrence's creator");
+        require (IsCreatedThatOccurrence[msg.sender][_OccurrenceId] == true , "You can not Close that Occurrence, you are not the Occurrence's creator");
         for (uint256 i = 0 ; i <Occurrences.length ; i++){
             Occurrence storage CurrentOccurrence = Occurrences[i];
             if (CurrentOccurrence.OccurrenceId == _OccurrenceId ){
-                require (CurrentOccurrence.IsClosed == false , "You can not end an ended Occurrence");
+                require (CurrentOccurrence.IsClosed == false , "You can not Close an Closed Occurrence");
                 CurrentOccurrence.IsClosed = true;
             }
         }
@@ -96,7 +96,7 @@ contract Coasta {
         require(IsVoted[msg.sender][_OccurrenceId] == false,"You have voted on that Occurence before");
         for (uint256 i=0 ; i< Occurrences.length ; i++){
             if (Occurrences[i].OccurrenceId == _OccurrenceId){
-               require ( Occurrences[i].IsClosed == false ,"the Occurrence is ended");
+               require ( Occurrences[i].IsClosed == false ,"the Occurrence is Closed");
                 Occurrence storage TargetOccurrence = Occurrences[i];
                 if (subplanstokens.GetTokensClassOfSpecificUser(CallerAddress) == 1){
                     require(HighestVotesPerUsers[msg.sender][1] <= 5, "Essential user can only vote 5 votes on events");
