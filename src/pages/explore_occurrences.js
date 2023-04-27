@@ -244,7 +244,7 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
     
                             {  allmarketoccurrences.length > 0 ? (
                                 <SimpleGrid columns={4} spacingX='75px' spacingY='25px'>
-                                    { allmarketoccurrences.map((occurrence,idx) => (
+                                    { allmarketoccurrences.map((event,idx) => (
                                         <Col >
                                                 <br></br>
                                                 p
@@ -261,11 +261,11 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
                                                                 <Card.Title>
                                                                     <HStack >
                                                                         <Box width={500}>
-                                                                            <Text fontSize={20} ml="15px" fontWeight="bold" color="blue.200"> {occurrence.occurrencename} 
+                                                                            <Text fontSize={20} ml="15px" fontWeight="bold" color="blue.200"> {event.occurrencename} 
                                                                             </Text>
                                                                         </Box>
                                                                         {
-                                                                            occurrence.occurrenceisclosed ? (
+                                                                            event.occurrenceisclosed ? (
                                                                         
                                                                         <Box>
                                                                             <Badge  fontSize={16} variant='outline' colorScheme='red'>
@@ -300,7 +300,7 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
                                                                                 colorScheme='grey' 
                                                                                 variant='solid'
                                                                                 onClick={ ()=>{               
-                                                                                    setcurrentoccurrenceid(occurrence.occurrenceid);
+                                                                                    setcurrentoccurrenceid(event.occurrenceid);
                                                                                     onOpen();
                                                                                 }} >
                                                                                     Close Occurrence
@@ -318,29 +318,29 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
                                                             <Card.Text>
                                                                 <Box height="70px" width="350px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        {occurrence.occurrencedescription}
+                                                                        {event.occurrencedescription}
                                                                     </Text>
                                                                 </Box>
                                                                                                                         
 
                                                                 <Box height="40px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        Class: {occurrence.occurrenceclasss}
+                                                                        Class: {event.occurrenceclasss}
                                                                     </Text>
                                                                 </Box>
                                                                 <Box height="40px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        Yes Votes: {occurrence.occurrenceyesvotes} %
+                                                                        Yes Votes: {event.occurrenceyesvotes} %
                                                                     </Text>
                                                                 </Box>
                                                                 <Box height="45px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        No Votes: {occurrence.occurrencenovotes} %
+                                                                        No Votes: {event.occurrencenovotes} %
                                                                     </Text>
                                                                 </Box>
                                                                 <Box height="45px" width="320px">
                                                                     <Text  fontSize={20}  ml="15px"  color="blue.200">
-                                                                        Creator: {occurrence.occurrencecreator.slice(0, 5) + '...' + occurrence.occurrencecreator.slice(38, 42)}
+                                                                        Creator: {event.occurrencecreator.slice(0, 5) + '...' + event.occurrencecreator.slice(38, 42)}
                                                                     </Text>
                                                                 </Box>
                                                           
@@ -365,7 +365,7 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
                                                                     height="75px"
                                                                     fontSize={30}
                                                                     onClick={ ()=>{
-                                                                        voteonoccurrencesYes(occurrence.occurrenceid)
+                                                                        voteonoccurrencesYes(event.occurrenceid)
                                                                         
 
                                                                     }
@@ -384,7 +384,7 @@ const EXPLOREOCCURRENCES = ({accounts,coastacontract}) => {
                                                                     height="75px"
                                                                     fontSize={30}
                                                                     onClick={ ()=>{
-                                                                        voteonoccurrencesNo(occurrence.occurrenceid)
+                                                                        voteonoccurrencesNo(event.occurrenceid)
                                                                         
 
                                                                     }
